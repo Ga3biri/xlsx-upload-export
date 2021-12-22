@@ -36,9 +36,11 @@ export class SheetComponent {
         }, {});
         console.log('jsonData')
         console.log(jsonData.Sheet1)
+        // here we can merge the the same product in it's own array 
         let data_result= this.groupBy(jsonData.Sheet1,'Product/Application Name')
         console.log('data_result')
         console.log(data_result)
+        // here we can merge all objects of same name to be one object with summation of it's properities 
         this.mergeForSameName(data_result)
       }
       reader.readAsBinaryString(file);
@@ -86,6 +88,7 @@ export class SheetComponent {
   }
   this.finalResult=all_result
   console.log(all_result)
+  // get total value for all properites to get percentage according to it.
   this.getMaxValues(all_result)
   }
 
@@ -119,8 +122,5 @@ export class SheetComponent {
       const new_workbook = XLSX.utils.book_new()
       XLSX.utils.book_append_sheet(new_workbook, worksheet, "worksheet")
       XLSX.writeFile(new_workbook,this.fileName)
-
-
-
   }
 }
