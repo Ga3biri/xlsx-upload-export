@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import * as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-sheet',
+  templateUrl: './sheet.component.html',
+  styleUrls: ['./sheet.component.scss']
 })
-export class AppComponent {
+export class SheetComponent {
+
+  constructor(private spinner:NgxSpinnerService){}
+
   fileName = 'Infrastructure Report.xlsx';
   criteria_keys:any=[];
   finalResult:any;
@@ -16,6 +20,7 @@ export class AppComponent {
   export_status=false;
 
   fileUpload(ev:any) {
+    this.spinner.show()
     this.export_status=true;
       let workBook:any = null;
       let jsonData = null;
@@ -37,6 +42,7 @@ export class AppComponent {
         this.mergeForSameName(data_result)
       }
       reader.readAsBinaryString(file);
+      this.spinner.hide()
   }
 
 

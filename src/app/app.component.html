@@ -1,64 +1,10 @@
-<section>
-  <div class="container-fluid">
-    <div class="row mt-2">
-      <div class="col-md-3">
-        <input type="text" placeholder="Global search" class="form-control">
-      </div>
-      <div class="col-md-2 offset-md-7 text-right">
-        <input #uploadfile id="file" type="file" accept=".xlsx" (change)="fileUpload($event)" hidden>
-        <button class="btn btn-sm btn-success mr-2" (click)="uploadfile.click()">Import</button>
-        <button class="btn btn-sm btn-info" (click)="exportXcel()" style="background: linear-gradient(to top right, #3333cc 1%, #ff0066 100%);">Export</button>
-      </div>
-      
-    </div>
-    <div class="row mt-2">
-      <div class="col-md-12">
-        <table class="table" id="first-table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">All Groups</th>
-              <th scope="col">Total Memory Used</th>
-              <th scope="col">Total CPU Assigned</th>
-              <th scope="col">Total Storage Used</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Summary</td>
-              <td>{{total_memory | spacesize}}</td>
-              <td>{{total_cpu}}</td>
-              <td>{{total_storage |spacesize}}</td>
-            </tr>
-          </tbody>
-        </table>
-        
-        <table class="table" id="second-table">
-          <thead class="text-light" style="background: #4c0b7f;">
-            <tr>
-              <th scope="col">S.No</th>
-              <th scope="col">Product/Application</th>
-              <th scope="col">Total configured Memory</th>
-              <th scope="col">Total Assigned CPU Cores</th>
-              <th scope="col">Total used Storage </th>
-              <th scope="col">Usage  Memory</th>
-              <th scope="col">Usage  CPU Cores</th>
-              <th scope="col">Usage  Storage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of finalResult;let i=index">
-              <th scope="row">{{i+1}}</th>
-              <td>{{item.product}}</td>
-              <td>{{item.Memory_Configured | spacesize}}</td>
-              <td>{{item.Processor_Count}}</td>
-              <td>{{item.Storage_Configured | spacesize}}</td>
-              <td>{{item.Memory_Configured/total_memory *100 | number : '1.2-2'}} %</td>
-              <td>{{item.Processor_Count/total_cpu *100 | number : '1.2-2'}} %</td>
-              <td>{{item.Storage_Configured/total_storage *100 | number : '1.2-2'}} %</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<app-sheet></app-sheet>>

@@ -20,6 +20,7 @@
     "@angular/router": "~12.2.0",
     "bootstrap": "^4.5.3",
     "ngx-bootstrap": "^7.1.0",
+    "ngx-spinner": "^13.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.17.4",
